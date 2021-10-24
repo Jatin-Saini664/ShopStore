@@ -24,7 +24,7 @@ detail=[
 #     serializer_class = ShopSerializer
 #     def get(self, request):
 #         return Response(serializer_class.data)
-
+@api_view(['GET', 'POST', 'DELETE'])
 def home(request):
     # constext = {}
     if request.method == 'GET':

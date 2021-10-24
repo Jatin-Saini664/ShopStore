@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 # REST_FRAMEWORK = [
@@ -60,10 +60,11 @@ MIDDLEWARE = [
 # ]
 
 CORS_ORIGIN_WHITELIST = [
+    'http://localhost:8000',
     'http://localhost:5000',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 
 ROOT_URLCONF = 'project.urls'
 
