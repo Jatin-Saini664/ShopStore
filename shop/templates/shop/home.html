@@ -1,0 +1,65 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+    {% for shop in shop_details%}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ shop.owner}}</a>
+                    <small class="text-muted">{{ shop.date_posted | date:"F d , Y"}}</small>
+                </div>
+                <h2>
+                <a class="article-title" href="#">{{ shop.title}}</a></h2>
+                <p class="article-content">{{ shop.content }}</p>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} 
+<!DOCTYPE html>
+<html>
+<head>
+    {% if  title%}
+	    <title>{{title}}</title>        
+    {% else %}
+	    <title>Home</title>        
+        
+    {% endif %}
+
+</head>
+<body>
+    {% for shop in shop_details%}
+    <h1>{{ shop.owner}}</h1>
+    <p>{{ shop.title}}</p>
+   <p>{{ shop.content}}</p>
+   <p>{{ shop.date_posted}}</p>
+    {% endfor %}
+</body>
+</html> 
+
+{% endcomment %}
