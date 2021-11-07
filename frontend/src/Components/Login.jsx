@@ -28,7 +28,7 @@ const Login = () => {
                 console.log(data);
                 if(data['isValid']){
                     setUser(data['username']);
-                    history.push("/");
+                    history.push("/shop");
                 }
             })
             .catch((err)=>console.log(err));

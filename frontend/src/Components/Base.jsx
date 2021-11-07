@@ -15,8 +15,7 @@ const Base = (props) => {
     }, [])
     function onclick(){
         setUser("");
-        console.log(history);
-        // history.push("/");
+        history.push("/shop");
     }
     return ( <div className="base-container">
         <header className="site-header">
@@ -28,17 +27,17 @@ const Base = (props) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarToggle">
             <div className="navbar-nav mr-auto">
-                <Link to="/" className="nav-item nav-link">Home</Link>
-                <Link to="/about" className="nav-item nav-link">About</Link>
+                <Link to="/shop" className="nav-item nav-link">Home</Link>
+                <Link to="/shop/about" className="nav-item nav-link">About</Link>
             </div>
             {/* <!-- Navbar Right Side --> */}
-            {(user === "")? (<div className="navbar-nav">
-                <Link className="nav-item nav-link" to="/login">Login</Link>
-                <Link className="nav-item nav-link" to="/register">Register</Link>
+            {(user == "")? (<div className="navbar-nav">
+                <Link className="nav-item nav-link" to="/shop/login">Login</Link>
+                <Link className="nav-item nav-link" to="/shop/register">Register</Link>
             </div>):
             (<div className="navbar-nav">
-                <Link className="nav-item nav-link" to="/profile">Profile</Link>
-                <Link className="nav-item nav-link" to="/" onClick={onclick}>Logout</Link>
+                <Link className="nav-item nav-link" to="/shop/profile">Profile</Link>
+                <div className="nav-item nav-link" style={{cursor:'pointer'}} onClick={onclick}>Logout</div>
             </div>)}
         </div>
         </div>

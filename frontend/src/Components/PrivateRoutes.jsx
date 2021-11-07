@@ -10,7 +10,7 @@ const PrivateRoutes = (props) => {
     useEffect(()=>{
         setPath(props.values.history.location.pathname);
     }, )
-    return ((path==='/')?(<Home key="1"></Home>):((path==='/about')?(<About key="2"></About>):((path==="/profile")?(<Profile key="3"></Profile>):((path==="/login")?(<Login key="4"></Login>):(<Register key="5"></Register>)))));
+    return ((path==='/shop')?(<Home key="1"></Home>):((path==='/shop/about')?(<About key="2"></About>):((path==="/shop/profile")?(<Profile key="3"></Profile>):((path==="/shop/login")?(<Login key="4"></Login>):(<Register key="5"></Register>)))));
 }
  
 export default PrivateRoutes

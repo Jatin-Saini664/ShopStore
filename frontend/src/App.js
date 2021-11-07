@@ -3,18 +3,20 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import CreateShop from './Components/CreateShop';
 import Base from './Components/Base';
 import { AuthProvider } from './Context/AuthProvider';
+import Default from './Components/Default';
 
 function App() {
   return (
     <AuthProvider>
       <Router>
         <Switch>
-          <Route path="/" component={Base} exact></Route>
-          <Route path="/register" component={Base} exact></Route>
-          <Route path="/create" component={CreateShop} exact></Route>
-          <Route path="/about" component={Base} exact></Route>
-          <Route path="/profile" component={Base} exact></Route>
-          <Route path="/login" component={Base} exact></Route>
+          <Route path="/" component={Default} exact></Route>
+          <Route path="/shop" component={Base} exact></Route>
+          <Route path="/shop/register" component={Base}></Route>
+          <Route path="/shop/create" component={CreateShop}></Route>
+          <Route path="/shop/about" component={Base}></Route>
+          <Route path="/shop/profile" component={Base}></Route>
+          <Route path="/shop/login" component={Base}></Route>
         </Switch>
       </Router>
     </AuthProvider>

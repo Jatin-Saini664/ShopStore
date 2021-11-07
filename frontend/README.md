@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+### Steps to start the project
+
+1. open the terminal and type "cd folder_name" and press enter
+2. Type the command to start django server "python manage.py runserver"
+3. Open another terminal and repeat step 1.
+4. Goto to frontend folder using cd command.
+5. Type type following command to start the react server "npm start". You need to have nodejs installed on  your device before starting react.

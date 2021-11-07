@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 export const AuthContext = React.createContext()
 
 export function AuthProvider({children}){
-    const [currentUser, setCurrentUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState("");
 
     function setUser(user){
         setCurrentUser(user);
