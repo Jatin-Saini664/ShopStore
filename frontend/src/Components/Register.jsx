@@ -1,46 +1,82 @@
-import React, {useState, useEffect}from 'react';
+import React, {useState, useEffect, useContext}from 'react';
+import { useHistory } from 'react-router';
+import { AuthContext } from '../Context/AuthProvider';
 // import axios from "axios";
 
 const Register = () => {
-    // const [form, setForm] = useState({});
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [conPass, setConPass] = useState("")
+    const history = useHistory();
+    const {setUser, csrftoken} = useContext(AuthContext);
 
-    // useEffect(async()=>{
-        // let data = await axios.get("http://127.0.0.1:5000/register/");
-        // let data = await axios.create({
-        //     baseURL: "http://127.0.0.1:5000/register/",
-        //     withCredentials: false,
-        //     headers: {
-        //       'Access-Control-Allow-Origin' : '*',
-        //       'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        //       }
-        //   });
-        // console.log(data());
-        // console.log(data);  
-        // setForm(data);
-    // }, []);
+    useEffect(()=>{
+        
+    }, []);
+    
+    function onsub(){
+        console.log(username+" "+email+"  "+password+"  "+conPass)
+        const attribute = {
+            method: "POST",
+            credentials :"same-origin",
+            headers:{
+                'Accept': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify({
+                'username':username,
+                'email':email,
+                'password1':password,
+                'password2':conPass
+            }),
+        }
+        fetch("http://127.0.0.1:8000/register", attribute)
+            .then((response)=>response.json())
+            .then((data)=>{
+                console.log(data);
+                if(data['isValid']){
+                    setUser(data['username']);
+                    history.push("/");
+                }
+            })
+            .catch((err)=>console.log(err));
+    }
     return (
-        // {% extends 'shop/base.html' %}
-        // {% load crispy_forms_tags %}
-        // {% block content %}
             <div className= "content-section">
-                <form method="post"  >
-                    {/* {%csrf_token %} */}
                     <fieldset className="form-group">
                         <legend className="border-bottom mb-4">Join Today</legend>
-                        {/* {{form |crispy}} */}
-                        <div></div>
+                        <div>
+                            <div className="mb-3">
+                                <label className="form-label">Username*</label>
+                                <input className="form-control" type="text" value={username} onChange={(e)=>setUsername(e.target.value)}/>
+                                <small>Required 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small>
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">Email*</label>
+                                <input type="email" className="form-control" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">Password*</label>
+                                <input type="password" className="form-control" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                                </div>
+                            <div className="mb-3">
+                                <label className="form-label">Password Confirmation*</label>
+                                <input type="password" className="form-control" value={conPass} onChange={(e)=>setConPass(e.target.value)}/>
+                                <small>Enter the same password as before, for verification.</small>
+                            </div>
+                        </div>
                     </fieldset>
                     <div className="form-group">
-                        <button className="btn btn-outline-info" type="submit">Sign up</button>
+                        <button className="btn btn-outline-info" onClick={onsub}>Sign up</button>
                     </div>
-                </form>
                 <div className="border-top pt-3">
                     <small className="text-muted">
                         Already have an account ? <a className="ml-2" href="#">Sign up</a>
                     </small>
                 </div>
             </div>
-        // {% endblock content %}
     );
 }
  

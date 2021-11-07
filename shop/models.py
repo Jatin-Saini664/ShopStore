@@ -15,7 +15,8 @@ class ShopDetails(models.Model):
     
     date_posted = models.DateTimeField(default=timezone.now)
 
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    # owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    # owner = models.CharField(max_length=100, default="abcd")
 
     def __str__(self):
         return self.title

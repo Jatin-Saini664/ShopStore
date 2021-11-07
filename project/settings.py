@@ -25,7 +25,9 @@ SECRET_KEY = '1o(yq01qpiikv*(gmsnx+l_(7!ewzm)fxk_4_+5tx)5huxrktl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+
+]
 
 
 # Application definition
@@ -60,11 +62,10 @@ MIDDLEWARE = [
 # ]
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8000',
-    'http://localhost:5000',
+    'http://localhost:3000',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = False
+# CORS_ORIGIN_ALLOW_ALL = False
 
 ROOT_URLCONF = 'project.urls'
 
