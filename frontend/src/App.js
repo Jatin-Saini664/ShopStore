@@ -4,6 +4,7 @@ import CreateShop from './Components/CreateShop';
 import Base from './Components/Base';
 import { AuthProvider } from './Context/AuthProvider';
 import Default from './Components/Default';
+import Product from './Components/Product';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/shop/about" component={Base}></Route>
           <Route path="/shop/profile" component={Base}></Route>
           <Route path="/shop/login" component={Base}></Route>
+          <Route path="/product" component={Product}></Route>
         </Switch>
       </Router>
     </AuthProvider>

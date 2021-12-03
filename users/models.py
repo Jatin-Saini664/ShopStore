@@ -7,6 +7,7 @@ class UserModel(models.Model):
     email = models.EmailField()
     password = models.CharField(max_length=15)
     # password2 = models.CharField(max_length=15)
+    
 
 class UserValidationModel(models.Model):
     username = models.CharField(max_length=30)

@@ -30,15 +30,16 @@ const Home = () => {
                             </a>
                             <small className="text-muted">
                                 {/* {{ shop.date_posted | date:"F d , Y"}} */obj.date_posted}
-                                </small>
+                            </small>
                         </div>
                         <h2>
-                        <a className="article-title" href="#">
-                            {/* {{ shop.title}} */obj.title}
-                            </a></h2>
+                            <a className="article-title" href="#">
+                                {/* {{ shop.title}} */obj.title}
+                            </a>
+                        </h2>
                         <p className="article-content">
                             {/* {{ shop.content }} */obj.content}
-                            </p>
+                        </p>
                     </div>
                 </article>
             );
