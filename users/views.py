@@ -59,7 +59,7 @@ def login(request):
                     "isValid":True
                 }
                 return JsonResponse(content, status=200)
-        return JsonResponse({"message":"Info Not Reached", "isValid":False}, status=200)
+        return JsonResponse({"message":"Username or password did not match", "isValid":False}, status=400)
 
 # decorator is added here so that we can prevent from going profile directly by urls
 @login_required

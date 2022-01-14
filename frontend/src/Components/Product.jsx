@@ -1,13 +1,36 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Navbar, Container, Nav, Form, FormControl, NavDropdown, Button} from 'react-bootstrap';
-import './product.css';
-import img1 from './img1.jpg';
-import img2 from './img2.jpg';
-import img3 from './img3.jpg';
-import img4 from './img4.jpg';
+import './CSS/product.css';
+import img1 from './media/img1.jpg';
+import img2 from './media/img2.jpg';
+import img3 from './media/img3.jpg';
+import img4 from './media/img4.jpg';
+import boat1 from './media/boat1.jpeg';
+import noise1 from './media/noise1.jpeg';
+import realme1 from './media/realme1.jpeg';
+import timewear1 from './media/timewear1.jpeg';
+import noise2 from './media/wrb-sw-colorfitpro3-std-ros-pnk-android-ios-noise-original-imag2drhshyutzm8.jpeg';
 import {FaRupeeSign} from 'react-icons/fa';
+import { AuthContext } from '../Context/AuthProvider';
 
 const Product = () => {
+    const {user} = useContext(AuthContext);
+
+    function clickCart(e){
+      if(user===""){
+
+      }else{
+        
+      }
+    }
+
+    function clickBuy(e){
+      if(user===""){
+
+      }else{
+
+      }
+    }
     function onClickPhoto(e){
       let mphoto = document.querySelector('.enlarged-photo>img');
       let ophoto = document.querySelector('.p-visible');
@@ -37,24 +60,31 @@ const Product = () => {
           placeholder="Search"
           className="me-2"
           aria-label="Search"
-          style={{width:'40rem'}}
+          style={{width:'35rem'}}
         />
         <Button variant="outline-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
         </svg></Button>
       </Form>
-    <Nav className="me-auto">
+    <Nav className="me-auto" >
       <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-      <NavDropdown title="Link" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+      
+      {(user === "")?(<div style={{display:"flex"}}><NavDropdown style={{cursor:"pointer"}} title="Login" id="navbarScrollingDropdown">
+          <NavDropdown.Item href="#action3">As a Customer</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">
-            Something else here
-          </NavDropdown.Item>
+          <NavDropdown.Item href="#action4">As a Seller</NavDropdown.Item>
         </NavDropdown>
+        <NavDropdown title="SignUp" style={{cursor:"pointer"}} id="navbarScrollingDropdown">
+          <NavDropdown.Item href="#action3">As a Customer</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action4">As a Seller</NavDropdown.Item>
+        </NavDropdown></div>):(
+        <div style={{display:"flex"}}>
+          <Nav.Link href="#features">Cart</Nav.Link>
+          <Nav.Link href="#pricing">Orders</Nav.Link>
+          <Nav.Link href="#pricing">Logout</Nav.Link>
+        </div>)
+      }
     </Nav>
     </Container>
   </Navbar>
@@ -94,8 +124,8 @@ const Product = () => {
         <input type="number" min="1" max="10" style={{width:"10%"}}/>
       </div>
       <div className="buy-sell">
-        <button>Add to Cart</button>
-        <button>Buy</button>
+        <button onClick={clickCart}>Add to Cart</button>
+        <button onClick={clickBuy}>Buy</button>
       </div>
       <div className="product-details">
         <strong>About this Item:</strong>
@@ -112,8 +142,12 @@ const Product = () => {
     <div className="related-products-title">
       <strong>Related Products</strong>
     </div>
-    <div className="product">
-      
+    <div className="products">
+        <div className="product"><img src={boat1} alt="" /></div>
+        <div className="product"><img src={noise1} alt="" /></div>
+        <div className="product"><img src={realme1} alt="" /></div>
+        <div className="product"><img src={timewear1} alt="" /></div>
+        <div className="product"><img src={noise2} alt="" /></div>
     </div>
   </div>
     </div>);

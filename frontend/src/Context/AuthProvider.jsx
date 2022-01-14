@@ -3,9 +3,23 @@ export const AuthContext = React.createContext()
 
 export function AuthProvider({children}){
     const [currentUser, setCurrentUser] = useState("");
-
+    const [isSeller, setisseller] = useState(0);
+    const [searchList, setSearchList] = useState([]);
+    const [search, setSearch] = useState('');
     function setUser(user){
         setCurrentUser(user);
+    }
+
+    function setIsSeller(value){
+        setisseller(value);
+    }
+
+    function setList(value){
+        setSearchList(value);
+    }
+
+    function Search(value){
+        setSearch(value);
     }
 
     // function getCookie(name) {
@@ -29,6 +43,12 @@ export function AuthProvider({children}){
     const value = {
         user:currentUser,
         setUser:setUser,
+        isSeller:isSeller,
+        setIsSeller:setIsSeller,
+        searchList:searchList,
+        setList:setList,
+        search:search,
+        setSearchValue:Search
     }
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

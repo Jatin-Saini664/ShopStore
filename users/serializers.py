@@ -12,10 +12,10 @@ class UserSerializers(serializers.ModelSerializer):
         email_present = UserModel.objects.filter(email=email)
         
         if email_present.exists():
-            return "email not present"
+            return "email already present"
 
         if self.data['password1'] != self.data['password2']:
-            return "password not matched"
+            return "passwords do not match"
 
         return "valid"
 

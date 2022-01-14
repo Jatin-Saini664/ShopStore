@@ -1,0 +1,45 @@
+.main-product-container{
+    width: 98vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-container{
+    width: 50%;
+    height: 100%;
+
+}
+
+.same{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.legend-span{
+    font-size: 1.1rem;
+}
+
+.input{
+    height: 6vh;
+    border-radius: 5px;
+    border: 1px;
+    text-indent: 5px;
+}
+
+.input:focus{
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.file{
+    width: 100%;
+}
+
+button{
+    width: 20%;
+    height: 6%;
+}

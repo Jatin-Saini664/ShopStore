@@ -83,7 +83,6 @@
 .price{
     width: 43%;
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-between;
     align-items:center;
 }
@@ -113,4 +112,36 @@
     height: 80%;
     text-align: center;
 }
+
+.related-products{
+    width: 98vw;
+    position: relative;
+    left: 7vw;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.related-products .products{
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.related-products .products .product{
+    width: 20%;
+}
+
+.related-products .products .product>img{
+    width: 90%;
+}
+
+/* .related-products .products>button{
+    position: absolute;
+    width: 2%;
+    height: 20%;
+    left: 88vw;
+} */
 

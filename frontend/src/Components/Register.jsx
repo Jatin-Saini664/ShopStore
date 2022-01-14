@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext}from 'react';
 import { useHistory } from 'react-router';
 import { AuthContext } from '../Context/AuthProvider';
+import { Link } from 'react-router-dom';
 // import axios from "axios";
 
 const Register = () => {
@@ -9,7 +10,7 @@ const Register = () => {
     const [password, setPassword] = useState("")
     const [conPass, setConPass] = useState("")
     const history = useHistory();
-    const {setUser, csrftoken} = useContext(AuthContext);
+    const {setUser, csrftoken, setIsSeller} = useContext(AuthContext);
 
     useEffect(()=>{
         
@@ -38,15 +39,17 @@ const Register = () => {
                 console.log(data);
                 if(data['isValid']){
                     setUser(data['username']);
+                    setIsSeller(2);
                     history.push("/shop");
                 }
             })
             .catch((err)=>console.log(err));
     }
     return (
-            <div className= "content-section">
+        <div style={{display:"flex", justifyContent:"center", marginTop:"5vh"}}>
+            <div style={{width:"65%"}} className= "content-section">
                     <fieldset className="form-group">
-                        <legend className="border-bottom mb-4">Join Today</legend>
+                        <legend className="border-bottom mb-4">SignUp As a Seller</legend>
                         <div>
                             <div className="mb-3">
                                 <label className="form-label">Username*</label>
@@ -73,10 +76,12 @@ const Register = () => {
                     </div>
                 <div className="border-top pt-3">
                     <small className="text-muted">
-                        Already have an account ? <a className="ml-2" href="#">Sign up</a>
+                        Already have an account ? <Link className="ml-2" to="/shop/login">Login</Link>
                     </small>
                 </div>
             </div>
+        </div>
+            
     );
 }
  

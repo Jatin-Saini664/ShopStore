@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const {setUser} = useContext(AuthContext);
+    const {setUser, setIsSeller} = useContext(AuthContext);
     const history = useHistory();
 
     function onsubmit(){
@@ -28,15 +28,17 @@ const Login = () => {
                 console.log(data);
                 if(data['isValid']){
                     setUser(data['username']);
+                    setIsSeller(2);
                     history.push("/shop");
                 }
             })
             .catch((err)=>console.log(err));
     }
     return (
-        <div className= "content-section">
+        <div style={{display:"flex", justifyContent:"center", marginTop:"5vh"}}>
+            <div style={{width:"65%"}} className= "content-section">
             <fieldset className="form-group">
-                <legend className="border-bottom mb-4">Login</legend>
+                <legend className="border-bottom mb-4">Login As a Seller</legend>
                 <div className="mb-3">
                     <label className="form-label">Username*</label>
                     <input className="form-control" type="text" value={username} onChange={(e)=>setUsername(e.target.value)}/>
@@ -52,10 +54,12 @@ const Login = () => {
             </div>
         <div className="border-top pt-3">
             <small className="text-muted">
-                Need an account ? <Link to="/register" className="ml-2">Sign up Now</Link>
+                Need an account ? <Link to="/shop/register" className="ml-2">Sign up Now</Link>
             </small>
         </div>
     </div>
+        </div>
+        
      );
 }
  
