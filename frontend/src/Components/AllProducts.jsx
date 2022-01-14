@@ -10,7 +10,7 @@ const AllProducts = () => {
         {searchList.map((object) => {
           return (
             <div className="card">
-              <img className="photo"src={'http://127.0.0.1:8000/ShopStore'+object.image1}/>
+              <img className="photo"src={'http://127.0.0.1:8000'+object.image1}/>
               <div className="card-content">
                 <strong>{typeof object.image1}</strong>
                 <strong></strong>
