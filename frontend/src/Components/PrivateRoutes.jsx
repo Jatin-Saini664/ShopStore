@@ -11,6 +11,7 @@ import CreateShop from "./CreateShop";
 import AddProduct from "./AddProduct";
 import Orders from "./Orders";
 import AllProducts from "./AllProducts";
+import Product from "./Product";
 
 const PrivateRoutes = (props) => {
   const [path, setPath] = useState("");
@@ -39,8 +40,10 @@ const PrivateRoutes = (props) => {
       <AddProduct key="10"></AddProduct>
   ) : path === "/shop/createShop" ? (
       <CreateShop key="11"></CreateShop>
-  ) : (
+  ) : path === "/shop/AllProducts" ? (
     <AllProducts key='12'></AllProducts>
+  ) : (
+    <Product key='13'></Product>
   );
 };
 

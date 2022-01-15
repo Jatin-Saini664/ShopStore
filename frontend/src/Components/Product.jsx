@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Navbar, Container, Nav, Form, FormControl, NavDropdown, Button} from 'react-bootstrap';
+// import {Navbar, Container, Nav, Form, FormControl, NavDropdown, Button} from 'react-bootstrap';
 import './CSS/product.css';
 import img1 from './media/img1.jpg';
 import img2 from './media/img2.jpg';
@@ -51,7 +51,7 @@ const Product = () => {
       }
     }
     return ( <div>
-    <Navbar bg="light" variant="light">
+    {/* <Navbar bg="light" variant="light">
     <Container>
     <Navbar.Brand href="#home">Navbar</Navbar.Brand>
     <Form className="d-flex">
@@ -87,7 +87,7 @@ const Product = () => {
       }
     </Nav>
     </Container>
-  </Navbar>
+  </Navbar> */}
   <div className="product-container">
     <div className="product-photos">
       <div className="enlarged-photo">
@@ -114,9 +114,9 @@ const Product = () => {
       </div>
       <div className="product-price">
         <div style={{color: 'green'}}>Special Price</div>
-        <h3 className="price"><span style={{fontSize:"2.1rem", display:"flex", justifyContent:"center", alignItems:"center", color:"black"}}><FaRupeeSign/>2999&nbsp;</span>
-          <span className="cut-price" style={{fontSize:"1.2rem", display:"flex", justifyContent:"center", alignItems:"center", paddingTop:"5px", color:"grey"}}><FaRupeeSign/>5999&nbsp;</span>
-          <span style={{color:"green", fontSize:"1.3rem"}}>50% off</span>
+        <h3 className="price"><span style={{fontSize:"2.1rem", display:"flex", justifyContent:"center", alignItems:"center", color:"black"}}><FaRupeeSign/>13500&nbsp;</span>
+          <span className="cut-price" style={{fontSize:"1.2rem", display:"flex", justifyContent:"center", alignItems:"center", paddingTop:"5px", color:"grey"}}><FaRupeeSign/>15000&nbsp;</span>
+          <span style={{ color:"green", fontSize:"1.3rem"}}>10% off</span>
         </h3>
       </div>
       <div className="product-quantity">

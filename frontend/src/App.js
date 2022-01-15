@@ -27,6 +27,7 @@ function App() {
           <Route path="/shop/orders" component={Main}></Route>
           <Route path="/shop/addProduct" component={Main}></Route>
           <Route path="/shop/AllProducts" component={Main}></Route>
+          <Route path="/shop/product" component={Main}></Route>
           <Route path="/shop/createShop" component={Main}></Route>
         </Switch>
       </Router>
