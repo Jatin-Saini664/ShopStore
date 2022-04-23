@@ -15,5 +15,5 @@ class SellerValidationModel(models.Model):
     password1 = models.CharField(max_length=15)
     password2 = models.CharField(max_length=15)
 
-
+# changing seller model
 
