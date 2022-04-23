@@ -8,7 +8,6 @@ import watch from './media/pexels-thlil-2373730.jpg';
 import smartphone from './media/pexels-anna-nekrashevich-7214628.jpg'; 
 import shoes from './media/pexels-ray-piedra-1537671.jpg';
 import card from './media/black-friday-elements-assortment.jpg';
-// import levis from './d4imgleft1.jpg';
 import levis from './media/d4all3.jpg';
 import puma from './media/e9e22c1e440d1bb1ec1c.jpg';
 import peter from './media/617688-5918214.jpg';
@@ -183,7 +182,6 @@ const Main = (props) => {
             <NavDropdown.Divider />
             <NavDropdown.Item onClick={()=>{history.push("/shop/addProduct")}}>Add Product</NavDropdown.Item>
             </NavDropdown>
-              {/* <Nav.Link onClick={()=>{history.push("/shop/addProduct")}}>Add Product</Nav.Link> */}
               <Nav.Link onClick={logout}>Logout</Nav.Link>
             </div>)
         }

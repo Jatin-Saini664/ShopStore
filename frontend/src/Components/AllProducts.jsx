@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 import * as p from "./CSS/allProducts.module.css";
 import { FaRupeeSign } from "react-icons/fa";
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
 
 const AllProducts = () => {
   const { search, searchList } = useContext(AuthContext);
-  const history = useHistory()
+  const history = useHistory();
   function onsubmit(e){
     history.push("/shop/product");
   }

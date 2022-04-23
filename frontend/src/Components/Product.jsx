@@ -1,5 +1,4 @@
-import React, {useContext} from 'react';
-// import {Navbar, Container, Nav, Form, FormControl, NavDropdown, Button} from 'react-bootstrap';
+import React, {useContext, useState} from 'react';
 import './CSS/product.css';
 import img1 from './media/img1.jpg';
 import img2 from './media/img2.jpg';
@@ -12,13 +11,15 @@ import timewear1 from './media/timewear1.jpeg';
 import noise2 from './media/wrb-sw-colorfitpro3-std-ros-pnk-android-ios-noise-original-imag2drhshyutzm8.jpeg';
 import {FaRupeeSign} from 'react-icons/fa';
 import { AuthContext } from '../Context/AuthProvider';
+import { useHistory } from 'react-router-dom';
 
 const Product = () => {
     const {user} = useContext(AuthContext);
-
+    const history = useHistory();
+    const [quantity, setQuantity] = useState(1);
     function clickCart(e){
       if(user===""){
-
+        history.push("/shop/customerLogin");
       }else{
         
       }
@@ -26,7 +27,7 @@ const Product = () => {
 
     function clickBuy(e){
       if(user===""){
-
+        history.push("/shop/customerLogin");
       }else{
 
       }
@@ -51,43 +52,6 @@ const Product = () => {
       }
     }
     return ( <div>
-    {/* <Navbar bg="light" variant="light">
-    <Container>
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-    <Form className="d-flex">
-        <FormControl
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-          style={{width:'35rem'}}
-        />
-        <Button variant="outline-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-        </svg></Button>
-      </Form>
-    <Nav className="me-auto" >
-      <Nav.Link href="#home">Home</Nav.Link>
-      
-      {(user === "")?(<div style={{display:"flex"}}><NavDropdown style={{cursor:"pointer"}} title="Login" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">As a Customer</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action4">As a Seller</NavDropdown.Item>
-        </NavDropdown>
-        <NavDropdown title="SignUp" style={{cursor:"pointer"}} id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">As a Customer</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action4">As a Seller</NavDropdown.Item>
-        </NavDropdown></div>):(
-        <div style={{display:"flex"}}>
-          <Nav.Link href="#features">Cart</Nav.Link>
-          <Nav.Link href="#pricing">Orders</Nav.Link>
-          <Nav.Link href="#pricing">Logout</Nav.Link>
-        </div>)
-      }
-    </Nav>
-    </Container>
-  </Navbar> */}
   <div className="product-container">
     <div className="product-photos">
       <div className="enlarged-photo">
@@ -121,7 +85,7 @@ const Product = () => {
       </div>
       <div className="product-quantity">
         Quantity:&nbsp;&nbsp;&nbsp;
-        <input type="number" min="1" max="10" style={{width:"10%"}}/>
+        <input type="number" min="1" value={quantity} onChange={(e)=>{setQuantity(e.target.value)}} max="10" style={{width:"10%"}}/>
       </div>
       <div className="buy-sell">
         <button onClick={clickCart}>Add to Cart</button>
